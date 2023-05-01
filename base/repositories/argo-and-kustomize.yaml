@@ -1,8 +1,0 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Repository
-metadata:
-  name: argo-and-kustomize
-spec:
-  type: git
-  repo: https://github.com/sirjobzy-kubeedge/kustomization.git
-  revision: main

@@ -1,7 +1,0 @@
----
-resources:
-  - ../../../base/repositories
-
-patches:
-  - path: argo-and-kustomize-patch.yaml
-
