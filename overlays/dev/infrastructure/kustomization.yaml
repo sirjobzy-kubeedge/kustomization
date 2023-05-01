@@ -1,0 +1,8 @@
+---
+resources:
+  - ../../../base/infrastructure
+
+patches:
+  - path: prometheus-patch.yaml
+  - path: redis-patch.yaml
+

@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  source:
+    helm:
+      values: |
+        grafana:
+          grafana.ini:
+            server:
+              root_url: https://
+          ingress:
+            enabled: true
+            hosts:
+              - ""
+        prometheus:
+          prometheusSpec:
+            externalLabels:
+              cluster: byfrost-dev-cluster
+              env: dev
+              region: westeurope
+

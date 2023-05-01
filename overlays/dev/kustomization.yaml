@@ -1,0 +1,6 @@
+---
+namespace: flux-system
+
+resources:
+  - repositories
+  - bootstrap-infra.yaml
