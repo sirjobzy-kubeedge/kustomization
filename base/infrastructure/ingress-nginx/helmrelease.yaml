@@ -19,7 +19,7 @@ spec:
             annotations: 
               service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
   destination:
-    server: https://kubernetes.default.svc
+    name: in-cluster
     namespace: ingress-nginx
   syncPolicy:
     syncOptions:

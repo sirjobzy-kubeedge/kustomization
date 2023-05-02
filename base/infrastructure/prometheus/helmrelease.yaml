@@ -1,40 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: kube-prometheus-stack
   namespace: argocd
   annotations:
-    # argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "3"
 spec:
+  destination:
+    name: in-cluster
+    namespace: monitoring
   project: default
   source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
-    targetRevision: 45.23.0
-    parameters:
+    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 34.1.1
     helm:
-      releaseName: kube-prometheus-stack
-      skipCrds: false   
-      values: |
-        prometheusOperator:
-          tls:
-            enabled: false
-          admissionWebhooks:
-            enabled: false
-        prometheus-node-exporter:
-           hostRootFsMount:
-             enabled: false
-        prometheusOperator:
-           admissionWebhooks:
-             failurePolicy: Ignore
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: monitoring
+      skipCrds: true
+      values: |-
+        #Snip the values
+    chart: kube-prometheus-stack
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-      - Replace=true
-      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
