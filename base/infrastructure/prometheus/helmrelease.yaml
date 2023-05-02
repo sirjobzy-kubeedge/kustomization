@@ -15,6 +15,12 @@ spec:
     helm:
       releaseName: kube-prometheus-stack
       skipCrds: false   
+      values: |
+        prometheusOperator:
+          tls:
+            enabled: false
+          admissionWebhooks:
+            enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
