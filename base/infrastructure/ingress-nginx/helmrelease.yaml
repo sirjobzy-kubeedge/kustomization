@@ -13,6 +13,11 @@ spec:
     helm:
       releaseName: ingress-nginx
       skipCrds: false   
+      values: |
+        controller:
+          service:
+            annotations: 
+              service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
