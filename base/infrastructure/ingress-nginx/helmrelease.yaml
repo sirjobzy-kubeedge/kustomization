@@ -15,10 +15,11 @@ spec:
       skipCrds: false   
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: ingress-nginx
   syncPolicy:
     syncOptions:
       - Replace=true
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
