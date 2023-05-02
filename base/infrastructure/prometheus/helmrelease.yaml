@@ -21,6 +21,12 @@ spec:
             enabled: false
           admissionWebhooks:
             enabled: false
+        prometheus-node-exporter:
+           hostRootFsMount:
+             enabled: false
+        prometheusOperator:
+           admissionWebhooks:
+             failurePolicy: Ignore
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
